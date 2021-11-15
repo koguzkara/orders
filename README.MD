@@ -1,27 +1,27 @@
-###1. To run 
+### 1. To run 
 ```bash
 ./mvnw clean clean compile jib:dockerBuild
 docker-compose up
 ```
 
-###2. General Explanation
+### 2. General Explanation
  Product has only name and description. But Product might have multiple ProductPrice with different currencies or in 
  different times. Order references to ProductPrice, so it will always keep the prices of  product. Basically prices of 
  products do not change a new price is defines everytime. And isActive field can be used to present only valid prices.
 
-###3. Missing Part
+### 3. Missing Part
  - Java Docs are considerably missing
  - Api documentation with openapi(swagger) is missing
  - Unit and integration testing is missing
 
-###4. Authentication 
+### 4. Authentication 
  I will use JWT to authenticate any api calls with specific refresh time
 
-###5. Redundancy 
+### 5. Redundancy 
  Use of container orchestrations tools,like kubernetes and docker swarm, with  a loadbalancer like Ingress should provide
 redundancy as long as application is stateless.
 
-###6. Examples
+### 6. Examples
  OpenApi should generate much more better documentation for API, but below should be enough for quick spin.
 POST localhost:8080/product/create
 ```json
