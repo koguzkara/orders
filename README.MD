@@ -8,7 +8,7 @@ docker-compose up
  Product has only name and description. But Product might have multiple ProductPrice with different currencies or in 
  different times. Order references to ProductPrice, so it will always keep the prices of  product. Basically prices of 
  products do not change a new price is defines everytime. And isActive field can be used to present only valid prices.
-
+ OrderSum returns total amounts for order and OrderDetail returns sum and all details.
 ### 3. Missing Part
  - Java Docs are considerably missing
  - Api documentation with openapi(swagger) is missing
