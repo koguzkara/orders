@@ -17,4 +17,9 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - 9899:8080
+  app:
+    image: ordersapp:0.0.1-SNAPSHOT
+    restart: always
+    ports:
+      - 8080:9899

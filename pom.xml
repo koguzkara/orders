@@ -8,14 +8,17 @@
 		<version>2.5.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>ecommerce.orders</groupId>
+	<artifactId>orders</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>orders</name>
+	<description>A Simple orders api Spring Boot Project </description>
 	<properties>
 		<java.version>11</java.version>
+		<start-class>ecommerce.orders.OrdersApplication</start-class>
+		<docker.image.name>ordersapp</docker.image.name>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -37,7 +40,7 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
+			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>7.0.1.Final</version>
 		</dependency>
@@ -56,6 +59,30 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>ecommerce.orders.OrdersApplication</mainClass>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.1.4</version>
+				<configuration>
+					<from>
+						<image>gcr.io/distroless/java:11@sha256:1d377403a44d32779be00fceec4803be0301c7f4a62b72d7307dc411860c24c3</image>
+					</from>
+					<to>
+						<image>${docker.image.name}:${project.version}</image>
+					</to>
+					<container>
+<!--						<jvmFlags>-->
+<!--							<jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>-->
+<!--						</jvmFlags>-->
+						<mainClass>ecommerce.orders.OrdersApplication</mainClass>
+						<filesModificationTime>${image.lastmodified}</filesModificationTime>
+						<creationTime>${maven.build.timestamp}</creationTime>
+					</container>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
